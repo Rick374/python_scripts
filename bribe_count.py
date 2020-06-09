@@ -14,7 +14,7 @@ def minimumBribes(q):
             return(print ("Too chaotic"))
         if q[i] != i+1:
             counter += 1
-    if q[len(q)-1] == len(q)/2
+    if q[len(q)-1] == len(q)/2:
         counter += 1
     return (print(counter-2))
 
