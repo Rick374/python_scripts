@@ -7,7 +7,7 @@ class Employee:
         print("Department: Sales")
         print("Salary: $1000")
 
-# Create the employee object    
+# Create the employee object
 emp = Employee()
 emp.name = "Ricardo Gallo"
 # Print the class variable
