@@ -1,6 +1,8 @@
 import pyautogui
 import time
 
+pyautogui.FAILSAFE = False
+
 class MouseMover:
     def __init__(self, move_amount=10, wait_time=5):
         self.move_amount = move_amount
