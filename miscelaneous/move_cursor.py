@@ -12,11 +12,11 @@ class MouseMover:
     def move_mouse(self):
         while True:
             # Get the current mouse position
-            x, y = pyautogui.position()
+            original_x, original_y = pyautogui.position()
 
             # Calculate the new position
-            new_x = x + self.move_amount
-            new_y = y + self.move_amount
+            new_x = original_x + self.move_amount
+            new_y = original_y + self.move_amount
 
             # Check if the new position is out of screen bounds
             if new_x >= self.screen_width:
@@ -24,8 +24,14 @@ class MouseMover:
             if new_y >= self.screen_height:
                 new_y = 0
 
-            # Move the mouse
+            # Move the mouse to the new position
             pyautogui.moveTo(new_x, new_y)
+
+            # Click the mouse
+            pyautogui.click()
+
+            # Move the mouse back to the original position
+            pyautogui.moveTo(original_x, original_y)
 
             # Wait for the specified time
             time.sleep(self.wait_time)
