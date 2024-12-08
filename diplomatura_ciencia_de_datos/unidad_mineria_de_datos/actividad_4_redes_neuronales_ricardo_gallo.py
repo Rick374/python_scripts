@@ -1,6 +1,7 @@
 # Importar las librerías necesarias
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 from sklearn.datasets import load_digits
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
@@ -8,6 +9,15 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 # Cargar el dataset digits
 digits = load_digits()
+
+# Crear un DataFrame de pandas con los datos y las etiquetas
+df = pd.DataFrame(data=digits.data, columns=[f'pixel_{i}' for i in range(digits.data.shape[1])])
+df['target'] = digits.target
+
+# Exportar el DataFrame a un archivo CSV
+df.to_csv('digits_dataset.csv', index=False)
+
+print("Datos exportados a digits_dataset.csv")
 
 # Mostrar información del dataset
 print("Shape of the dataset:", digits.data.shape)
